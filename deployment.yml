@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-flask-sample-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: python-flask-sample-app
+  template:
+    metadata:
+      labels:
+        run: python-flask-sample-app
+    spec:
+      containers:
+      - name: python-flask-sample-app
+        image: anaisurlichs/python-flask-sample-app:multi-stage
+        ports:
+          - containerPort: 5000
+        imagePullPolicy: Always

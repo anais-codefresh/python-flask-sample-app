@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-flask-sample-app
+  labels:
+    run: python-flask-sample-app
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 5000
+    protocol: TCP
+    name: http
+  selector:
+    run: python-flask-sample-app
